@@ -189,73 +189,45 @@ export default function Index() {
               </div>
             </div>
 
-            <Tabs defaultValue="all" className="w-full">
-              <TabsList className="mb-6">
-                <TabsTrigger value="all">Все товары</TabsTrigger>
-                <TabsTrigger value="vegetables">Овощи</TabsTrigger>
-                <TabsTrigger value="dairy">Молочное</TabsTrigger>
-                <TabsTrigger value="honey">Мёд</TabsTrigger>
-                <TabsTrigger value="equipment">Аренда техники</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="all" className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {products.map((product) => (
-                    <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group hover:-translate-y-1">
-                      <div className="relative overflow-hidden h-64">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        {product.eco && (
-                          <Badge className="absolute top-3 right-3 bg-accent text-accent-foreground">
-                            <Icon name="Leaf" size={14} className="mr-1" />
-                            ЭКО
-                          </Badge>
-                        )}
-                      </div>
-                      <CardContent className="p-5">
-                        <div className="flex items-start justify-between mb-2">
-                          <h3 className="font-semibold text-lg">{product.name}</h3>
-                          <Badge variant="secondary">{product.category}</Badge>
-                        </div>
-                        <p className="text-sm text-muted-foreground mb-3">{product.seller}</p>
-                        <div className="flex items-baseline gap-1">
-                          <span className="text-2xl font-bold text-primary">{product.price} ₽</span>
-                          <span className="text-sm text-muted-foreground">/ {product.unit}</span>
-                        </div>
-                      </CardContent>
-                      <CardFooter className="p-5 pt-0 flex gap-2">
-                        <Button className="flex-1">
-                          <Icon name="ShoppingCart" size={18} className="mr-2" />
-                          В корзину
-                        </Button>
-                        <Button variant="outline" size="icon">
-                          <Icon name="Heart" size={18} />
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
-                </div>
-              </TabsContent>
-
-              <TabsContent value="equipment" className="space-y-6">
-                <Card className="p-8 text-center">
-                  <div className="flex flex-col items-center gap-4">
-                    <Icon name="Tractor" size={64} className="text-primary opacity-50" />
-                    <h3 className="text-xl font-semibold">Аренда сельхозтехники</h3>
-                    <p className="text-muted-foreground max-w-md">
-                      Здесь фермеры смогут сдавать в аренду технику друг другу: тракторы, культиваторы, комбайны
-                    </p>
-                    <Button className="mt-4">
-                      <Icon name="Plus" size={18} className="mr-2" />
-                      Разместить объявление
-                    </Button>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {products.map((product) => (
+                <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300 group hover:-translate-y-1">
+                  <div className="relative overflow-hidden h-64">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    {product.eco && (
+                      <Badge className="absolute top-3 right-3 bg-accent text-accent-foreground">
+                        <Icon name="Leaf" size={14} className="mr-1" />
+                        ЭКО
+                      </Badge>
+                    )}
                   </div>
+                  <CardContent className="p-5">
+                    <div className="flex items-start justify-between mb-2">
+                      <h3 className="font-semibold text-lg">{product.name}</h3>
+                      <Badge variant="secondary">{product.category}</Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-3">{product.seller}</p>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-bold text-primary">{product.price} ₽</span>
+                      <span className="text-sm text-muted-foreground">/ {product.unit}</span>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-5 pt-0 flex gap-2">
+                    <Button className="flex-1">
+                      <Icon name="ShoppingCart" size={18} className="mr-2" />
+                      В корзину
+                    </Button>
+                    <Button variant="outline" size="icon">
+                      <Icon name="Heart" size={18} />
+                    </Button>
+                  </CardFooter>
                 </Card>
-              </TabsContent>
-            </Tabs>
+              ))}
+            </div>
           </div>
         )}
 
