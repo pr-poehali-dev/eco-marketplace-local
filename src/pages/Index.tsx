@@ -143,6 +143,15 @@ export default function Index() {
               Товары
             </button>
             <button
+              onClick={() => setActiveTab('rental')}
+              className={`flex items-center gap-2 transition-colors ${
+                activeTab === 'rental' ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
+              }`}
+            >
+              <Icon name="Tractor" size={20} />
+              Аренда
+            </button>
+            <button
               onClick={() => setActiveTab('chats')}
               className={`flex items-center gap-2 transition-colors ${
                 activeTab === 'chats' ? 'text-primary font-semibold' : 'text-muted-foreground hover:text-foreground'
